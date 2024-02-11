@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <!--IEブラウザ対策-->
@@ -19,9 +20,10 @@
   <link rel="apple-touch-icon-precomposed" href="画像のURL" />
   <!--OGPタグ/twitterカード-->
 </head>
+
 <body>
   <header>
-    <h1><img src="images/atlas.png"></h1>
+    <div class="header_log"><img src="images/atlas.png"></div>
     <p>Social Network Service</p>
   </header>
   <div id="container">
@@ -30,4 +32,5 @@
   <script src="JavaScriptファイルのURL"></script>
   <script src="JavaScriptファイルのURL"></script>
 </body>
+
 </html>

@@ -1,22 +1,190 @@
 @charset "utf-8";
-html{
-}
-body{
-}
+
+html {}
+
+body {}
+
 /* header */
-header{
-    background:#186AC9;
+header {
+    background: #186AC9;
+    width: 100%;
+    height: 100px;
+}
+
+#head {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+
+
+.user_nav {
+    font-weight: bold;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrow_btn {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    outline: none;
+    border: none;
+
+}
+
+.inn {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    &:before {
+        position: absolute;
+        content: "";
+        top: 40%;
+        left: 50%;
+        width: 15px;
+        height: 15px;
+        transform: translate(-50%, -40%) rotate(135deg);
+        border-top: 1px solid #fff;
+        border-right: 1px solid #fff;
+        transition: 0.3s ease;
+    }
+}
+
+
+.arrow_btn.is-open {
+    .inn {
+        &:before {
+            top: 60%;
+            transform: translate(-50%, -60%) rotate(-45deg);
+        }
+    }
+}
+
+.menu {
+    position: absolute;
+    top: 100px;
+    right: 0;
+    width: 20%;
+    background-color: #fff;
+    opacity: 0;
+    transition: .3s ease-in-out;
+    transform: translateY(-30px);
+    pointer-events: none;
+
+    a {
+        color: #000;
+    }
+
+    ul {
+        border: 1px solid #186AC9;
+
+        li {
+            height: 60px;
+            border-top: 1px solid #186AC9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.menu.is-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
 }
 
 /* main content */
-#row{
+#row {
     display: flex;
     flex-flow: row wrap;
+    height: 1000px;
 }
-#container{
+
+#container {
     flex: 0 0 80%;
+    top: 100px;
 }
-#side-bar{
+
+
+/* サイドバー */
+#side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+    color: #000;
+    font-size: 12px;
+}
+
+#confirm {
+    padding: 20px;
+    line-height: 2.5;
+}
+
+.btn {
+    text-align: center;
+}
+
+#confirm .btn {
+    text-align: right;
+}
+
+.btn a {
+    background-color: #186AC9;
+    color: #fff;
+    padding: 5px;
+}
+
+#confirm div {
+    display: flex;
+}
+
+
+.modal {
+    display: none;
+}
+
+.modal-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 200px;
+    background-color: #186AC9;
+
+}
+
+.inner-content {
+
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.box img {
+    position: absolute;
+}
+
+/* 2枚目の画像は最初透明 */
+.box img:last-of-type {
+    opacity: 0;
+    transition: opacity .7s;
+}
+
+/* hoverすると2枚目の画像が透明じゃなくなる */
+.box:hover img {
+    opacity: 1;
+}
+
+tr {
+    display: flex;
 }

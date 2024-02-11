@@ -2,4 +2,6 @@
 
 @section('content')
 
+<p>フォロワーリスト</p>
+
 @endsection

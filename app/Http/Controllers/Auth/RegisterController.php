@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 
+
 class RegisterController extends Controller
 {
     /*
@@ -34,13 +35,23 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest');
+    // }
 
-    public function register(Request $request){
-        if($request->isMethod('post')){
+    public function register(Request $request)
+    {
+
+
+        if ($request->isMethod('post')) {
+
+
+            $request->validate([
+                'username' => 'required|max:12|min:2',
+                'mail' => 'required|max:40|min:5|unique:users,mail|email',
+                'password' => 'required|confirmed|max:20|min:8|alpha_num',
+            ]);
 
             $username = $request->input('username');
             $mail = $request->input('mail');
@@ -52,12 +63,18 @@ class RegisterController extends Controller
                 'password' => bcrypt($password),
             ]);
 
+            // $request->session()->put('key', 値);
+            $request->session()->put('username',  $username);
+            $request = session()->get('username');
             return redirect('added');
         }
+
+
         return view('auth.register');
     }
 
-    public function added(){
+    public function added()
+    {
         return view('auth.added');
     }
 }
