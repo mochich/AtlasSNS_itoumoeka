@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'mail', 'password', 'images',
+        'username', 'mail', 'password', 'images', 'bio',
     ];
 
     /**
@@ -29,12 +29,6 @@ class User extends Authenticatable
     ];
 
 
-
-
-    public function follows()
-    {
-        return $this->hasMany('App\post');
-    }
     public function posts()
     {
         return $this->hasMany('App\post');
@@ -56,6 +50,6 @@ class User extends Authenticatable
     // フォローしているか
     public function isFollowing(Int $user_id)
     {
-        return (bool) $this->follows()->where('followed_id', $user_id)->first(['id']);
+        return (bool) $this->Followings()->where('followed_id', $user_id)->first();
     }
 }

@@ -2,7 +2,44 @@
 
 html {}
 
-body {}
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+
+}
+
+textarea {
+    resize: none;
+    line-height: 1.5;
+    height: 6.0rem;
+    font-size: 18px;
+
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+span {
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+.alert {
+    color: #ED3833;
+    margin-top: 30px;
+}
 
 /* header */
 header {
@@ -29,13 +66,19 @@ header {
     align-items: center;
 }
 
+.username {
+    display: block;
+    padding-right: 20px;
+}
+
 .arrow_btn {
     width: 30px;
     height: 30px;
     background: transparent;
     outline: none;
     border: none;
-
+    padding: 10px;
+    margin-right: 10px;
 }
 
 .inn {
@@ -73,6 +116,7 @@ header {
     top: 100px;
     right: 0;
     width: 20%;
+    height: 270px;
     background-color: #fff;
     opacity: 0;
     transition: .3s ease-in-out;
@@ -80,14 +124,18 @@ header {
     pointer-events: none;
 
     a {
-        color: #000;
+        color: #919191;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 90px;
     }
 
     ul {
         border: 1px solid #186AC9;
 
         li {
-            height: 60px;
+            height: 90px;
             border-top: 1px solid #186AC9;
             display: flex;
             align-items: center;
@@ -102,70 +150,168 @@ header {
     pointer-events: all;
 }
 
+.menu li:hover {
+    background-color: #186AC9;
+    transition: .3s ease-in-out;
+
+    a {
+        color: #fff;
+        transition: .3s ease-in-out;
+    }
+}
+
 /* main content */
 #row {
     display: flex;
-    flex-flow: row wrap;
-    height: 1000px;
+    width: 100%;
 }
 
 #container {
-    flex: 0 0 80%;
+    width: 80%;
     top: 100px;
 }
 
-
 /* サイドバー */
 #side-bar {
-    flex: 0 0 19%;
+    flex: 0 0 20%;
     border-left: 1px solid #727272;
     color: #000;
+}
+
+/* main content */
+.posting {
+    display: flex;
+    height: auto;
+    padding: 20px 80px;
+    justify-content: space-between;
+    border-bottom: 8px solid lightblue;
+}
+
+.form-control {
+    border: none;
+    width: 800px;
+}
+
+.send {
+    display: block;
+    margin-top: auto;
+}
+
+.post {
+    display: block;
+    height: auto;
+    padding: 20px 80px;
+    border-bottom: 1px solid lightblue;
     font-size: 12px;
 }
 
-#confirm {
-    padding: 20px;
-    line-height: 2.5;
+.post-inn {
+    margin: 16px 0;
 }
+
+
+
+.center {
+    width: 800px;
+}
+
+.right {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+
+#confirm {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 22px;
+    line-height: 2.5;
+    border-bottom: solid 1px #727272;
+}
+
+#confirm p {
+    font-size: 12px;
+}
+
 
 .btn {
     text-align: center;
 }
 
+.btn_search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+}
+
 #confirm .btn {
     text-align: right;
+
+    margin: 20px 20px 20px 0;
 }
 
 .btn a {
     background-color: #186AC9;
     color: #fff;
-    padding: 5px;
+    padding: 10px 30px;
+    border-radius: 10px;
+    text-align: center;
 }
 
-#confirm div {
-    display: flex;
-}
+
 
 
 .modal {
     display: none;
 }
 
+
 .modal-inner {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 500px;
-    height: 200px;
-    background-color: #186AC9;
+    width: 800px;
+    height: 300px;
+    background-color: #fff;
 
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    z-index: 2;
+    box-shadow: 0px 0px 0px 100vh rgba(0, 0, 0, 0.35);
 }
+
+
 
 .inner-content {
 
     text-align: center;
     margin: 0;
     padding: 0;
+}
+
+.inner-content textarea {
+    width: 740px;
+    height: 180px;
+    margin-bottom: 30px;
+}
+
+.edit {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-flow: column;
+    align-items: center;
 }
 
 
@@ -187,4 +333,207 @@ header {
 
 tr {
     display: flex;
+}
+
+/* フォローフォロワー */
+.list-header {
+    display: flex;
+    height: auto;
+    padding: 20px 80px;
+    border-bottom: 8px solid lightblue;
+}
+
+.user-icons {
+    display: flex;
+    width: 580px;
+    flex-wrap: wrap;
+    margin: 0 30px;
+}
+
+.user-icons a {
+    margin-right: 10px;
+}
+
+/* ユーザー検索 */
+.input {
+    width: 100%;
+    height: 36px;
+
+}
+
+.list-header form {
+    display: flex;
+    width: 300px;
+    padding: 16px;
+}
+
+.btn-success {
+    margin-left: 16px;
+}
+
+.search-header {
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.result {
+    letter-spacing: 0.5px;
+    margin-right: 20px;
+}
+
+
+
+.search-content {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+
+}
+
+
+
+.search-list {
+    display: flex;
+    align-items: center;
+    width: 30%;
+}
+
+.search-list img {
+    margin-right: 10px;
+}
+
+.follow-form {
+    display: inline-block;
+}
+
+.follow-btn {
+    background-color: #186AC9;
+    color: #fff;
+    width: 100%;
+    padding: 10px 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: none;
+}
+
+.unfollow-btn {
+    background-color: #ED3833;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: none;
+}
+
+/* プロフィールアップデート */
+.profile-update {
+    display: flex;
+    width: auto;
+    justify-content: center;
+    padding: 30px 80px;
+}
+
+.profile-update ul {
+    margin-left: 20px;
+}
+
+.profile-update ul li {
+    display: flex;
+    padding: 20px 0;
+}
+
+.profile-update ul li label {
+    width: 200px;
+}
+
+
+.form-group {
+    display: flex;
+}
+
+
+
+.form-group span {
+    position: relative;
+    display: block;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: “游ゴシック”, “Yu Gothic”;
+    background: #ee7800;
+    padding: 8px 0;
+    border-radius: 16px;
+    max-width: 240px;
+    text-align: center;
+    margin: auto 0;
+    transition: .3s;
+    cursor: pointer;
+    height: 100%;
+    width: 800px;
+    height: 60px;
+    line-height: 60px;
+
+}
+
+.form-group span:hover {
+    background: #000;
+}
+
+.file {
+
+    display: block;
+    position: absolute;
+    opacity: 0;
+    width: 240px;
+    height: 60px;
+    background-color: aqua;
+}
+
+.r-btn {
+    background-color: #ED3A50;
+    color: #fff;
+    padding: 10px 60px;
+    border-radius: 10px;
+    text-align: center;
+    border: none;
+    margin: 0 auto;
+}
+
+/* プロフィール */
+.profile-header {
+    display: flex;
+    height: auto;
+    padding: 20px 80px;
+    border-bottom: 8px solid lightblue;
+    justify-content: space-between;
+
+}
+
+.profile-header form {
+    margin: auto 0 0 0;
+}
+
+.profile {
+    display: flex;
+    font-size: 20px;
+    width: auto;
+    justify-content: center;
+}
+
+.profile dl div {
+    display: flex;
+    padding: 20px;
+}
+
+.profile dt {
+
+    width: 200px;
+}
+
+.profile dd {
+    font-weight: bold;
+
 }

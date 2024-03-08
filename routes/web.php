@@ -23,7 +23,7 @@
 Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 
-Route::get('/register', 'Auth\RegisterController@register');
+Route::get('/register', 'Auth\RegisterController@registerForm');
 Route::post('/register', 'Auth\RegisterController@register');
 
 Route::get('/added', 'Auth\RegisterController@added');
@@ -32,16 +32,24 @@ Route::post('/added', 'Auth\RegisterController@added');
 //ログイン中のページ
 Route::get('/index', 'PostsController@index')->middleware('auth');
 
-Route::post('/post', 'PostsController@create');
-Route::get('/post', 'PostsController@create');
-
-Route::get('/profile', 'UsersController@profile')->middleware('auth');
+Route::post('/post', 'PostsController@create')->middleware('auth');
+Route::get('/post', 'PostsController@create')->middleware('auth');
+//相手プロフィールに飛ぶ
+Route::get('/users/{id}/profile', 'UsersController@profile')->middleware('auth');
+//自分プロフィールに飛ぶ
+Route::get('/users/profile', 'UsersController@updateForm')->middleware('auth');
+//プロフィールを更新する
+Route::get('/update', 'UsersController@update')->middleware('auth');
+Route::post('/update', 'UsersController@update')->middleware('auth');
+Route::put('/update', 'UsersController@update')->middleware('auth');
 
 Route::get('/search', 'UsersController@search')->middleware('auth');
 Route::post('/search', 'UsersController@search')->middleware('auth');
 
 Route::get('/followList', 'FollowsController@followList')->middleware('auth');
 Route::get('/followerList', 'FollowsController@followerList')->middleware('auth');
+
+
 
 
 //ログアウト

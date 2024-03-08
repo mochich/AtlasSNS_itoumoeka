@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Http\Requests\TestPostRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
 use App\User;
@@ -16,29 +18,24 @@ class PostsController extends Controller
 
     public function index()
     {
-        // $following_id = Auth::user()->follows()->pluck('following_id');
-
-
-
         $user = Auth::user();
-        $posts = Post::get();
-        // $posts =
-        //     Post::with('user')->whereIn('user_id', $following_id)->latest()->get();
+        $posts = Post::with('user')->latest()->get();
+
 
         return view('posts.index', ['user' => $user, 'post' => $posts]);
     }
 
 
 
-    public function create(Request $request)
+    public function create(TestPostRequest $request)
     {
 
 
         if ($request->isMethod('post')) {
 
-            $request->validate([
-                'post' => 'required|max:150|min:1'
-            ]);
+            // $request->validate([
+            //     'post' => 'required|max:150|min:1'
+            // ]);
 
             //↓Auth::idは＝で結べばいい。input()は$requestから引抜きイメージ
             $user_id = Auth::id();
@@ -61,10 +58,10 @@ class PostsController extends Controller
     }
 
     // post更新
-    public function update(Request $request)
+    public function update(TestPostRequest $request)
     {
         $id = $request->input('id');
-        $up_post = $request->input('upPost');
+        $up_post = $request->input('post');
 
         Post::where('id', $id)->update([
             'post' => $up_post

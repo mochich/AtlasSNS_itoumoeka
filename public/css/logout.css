@@ -51,6 +51,7 @@ section {
     background-color: rgba(0, 0, 0, 0.2);
     padding: 32px 0;
     margin-bottom: 96px;
+    border-radius: 10px;
 }
 
 h2 {
@@ -61,6 +62,7 @@ h2 {
 form {
     width: 300px;
     margin: 0 auto;
+    border-radius: 10px;
 }
 
 
@@ -92,6 +94,7 @@ input {
     border: none;
     margin: 0 auto;
     margin-top: 20px;
+    border-radius: 10px;
 
 }
 
@@ -110,3 +113,11 @@ input {
     font-weight: bold;
     margin-bottom: 30px;
 }
+
+.alert {
+    display: block;
+    color: #fff;
+
+}
+
+/* 新規登録 */

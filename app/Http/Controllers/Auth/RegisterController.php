@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Http\Requests\TestRegisterRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 
 
 class RegisterController extends Controller
@@ -40,18 +41,28 @@ class RegisterController extends Controller
     //     $this->middleware('guest');
     // }
 
-    public function register(Request $request)
+
+    public function registerForm()
+    {
+
+        return view('auth.register');
+    }
+
+
+    public function register(TestRegisterRequest $request)
     {
 
 
         if ($request->isMethod('post')) {
 
 
-            $request->validate([
-                'username' => 'required|max:12|min:2',
-                'mail' => 'required|max:40|min:5|unique:users,mail|email',
-                'password' => 'required|confirmed|max:20|min:8|alpha_num',
-            ]);
+            // $request->validate([
+            //     'username' => 'required|max:12|min:2',
+            //     'mail' => 'required|max:40|min:5|unique:users,mail|email',
+            //     'password' => 'required|confirmed|max:20|min:8|alpha_num',
+            // ]);
+
+
 
             $username = $request->input('username');
             $mail = $request->input('mail');

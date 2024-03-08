@@ -16,6 +16,8 @@
     <link rel="icon" href="画像URL" sizes="32x32" type="image/png" />
     <link rel="icon" href="画像URL" sizes="48x48" type="image/png" />
     <link rel="icon" href="画像URL" sizes="62x62" type="image/png" />
+
+
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
@@ -28,64 +30,76 @@
 <body>
     <header>
         <div id="head">
-            <h1><a><img src="{{asset('images/atlas.png')}}" href='/top' height="50px"></a></h1>
-            <div>
-                <div class="user_nav">
-                    <p>{{ Auth::user()->username }}さん</p>
-                    <button type="button" class="arrow_btn"><span class="inn"></span></button>
-                    <img src="{{Storage::url(Auth::user()->images)}}">
+            <h1><a href='/index'><img src="{{asset('images/atlas.png')}}" height="50px"></a></h1>
 
-                    <nav class="menu">
-                        <ul>
-                            </p>
-                            </p>
-                            <li>
-                                <p><a href="/index">HOME</a></p>
-                                </p>
-                                </p>
-                            </li>
-                            <li>
-                                <p><a href="/profile">プロフィール編集</a></p>
-                                </p>
-                            </li>
-                            <li>
-                                <p><a href="/logout">ログアウト</a></p>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+            <div class="user_nav">
+                <p class="username">{{ Auth::user()->username }}さん</p>
+                <button type="button" class="arrow_btn"><span class="inn"></span></button>
+                <a href="/users/profile"><img src="{{Storage::url(Auth::user()->images)}}" class="icon"></a>
+
+                <nav class="menu">
+                    <ul>
+                        </p>
+                        </p>
+                        <li>
+                            <a href="/index">
+                                <p>HOME</p>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="/users/profile">
+                                <p>プロフィール編集</p>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="/logout">
+                                <p>ログアウト</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
+
         </div>
 
     </header>
     <div id="row">
         <div id="container">
+            <div class="alert">
+                @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+            </div>
             @yield('content')
 
         </div>
+
         <div id="side-bar">
 
             <div id="confirm">
                 <p>{{ Auth::user()->username }}さんの</p>
-                <div>
-                    <p>フォロー数</p>
+
+                <p>フォロー数　　　
+
                     {{DB::table('follows')->where('following_id', Auth::id())->count()}}
-                    <p>
-                        名
-                    </p>
-                </div>
+
+                    名
+                </p>
+
                 <p class="btn"><a href="/followList">フォローリスト</a></p>
-                <div>
-                    <p>フォロワー数</p>
-                    <p><!-- Follow::where('following_id', Auth::id())->count() -->
-                        {{DB::table('follows')->where('followed_id', Auth::id())->count()}}
-                        名
-                    </p>
-                </div>
+
+                <p>フォロワー数　　
+                    <!-- Follow::where('following_id', Auth::id())->count() -->
+                    {{DB::table('follows')->where('followed_id', Auth::id())->count()}}
+                    名
+                </p>
+
 
                 <p class="btn"><a href="/followerList">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <div class="btn btn_search"><a href="/search">ユーザー検索</a></div>
 
         </div>
     </div>
