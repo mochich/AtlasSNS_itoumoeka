@@ -8,10 +8,10 @@
     <input type="text" name="keyword" class="input" placeholder="ユーザー名">
     <input type="image" name="submit" class="btn btn-success" src="{{asset('images/search.png')}} " height="40px" width="40px">
   </form>
-
+  @if(!empty($keyword))
 
   <p class="result"><span>検索ワード：{{session('keyword')}}</span></p>
-
+  @endif
 </div>
 
 @foreach ($users as $users)

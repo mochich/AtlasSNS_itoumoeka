@@ -37,8 +37,20 @@ h3 {
 }
 
 .alert {
+    width: 600px;
     color: #ED3833;
-    margin-top: 30px;
+    margin: 20px auto;
+    list-style: none;
+    background-color: #F9DBDC;
+
+}
+
+.alert li {
+    line-height: 1.5rem;
+    margin: 0 auto;
+    padding-top: 5px;
+    width: 500px;
+    ;
 }
 
 /* header */
@@ -184,7 +196,7 @@ header {
     height: auto;
     padding: 20px 80px;
     justify-content: space-between;
-    border-bottom: 8px solid lightblue;
+    border-bottom: 8px solid #919191;
 }
 
 .form-control {
@@ -201,7 +213,7 @@ header {
     display: block;
     height: auto;
     padding: 20px 80px;
-    border-bottom: 1px solid lightblue;
+    border-bottom: 1px solid #919191;
     font-size: 12px;
 }
 
@@ -235,7 +247,7 @@ header {
     box-sizing: border-box;
     padding: 22px;
     line-height: 2.5;
-    border-bottom: solid 1px #727272;
+    border-bottom: solid 1px #919191;
 }
 
 #confirm p {
@@ -340,7 +352,7 @@ tr {
     display: flex;
     height: auto;
     padding: 20px 80px;
-    border-bottom: 8px solid lightblue;
+    border-bottom: 8px solid #919191;
 }
 
 .user-icons {

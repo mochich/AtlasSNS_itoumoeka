@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\hash;
 use Illuminate\Validation\Rule;
 
+
 class UsersController extends Controller
 {
     //
@@ -66,8 +67,20 @@ class UsersController extends Controller
             // ]);
 
             $user = Auth::user();
+
+
             // 画像登録
-            $image = $request->file('images')->store('public');
+            if (empty($request->file('images'))) {
+                $image =
+                    Auth::user()->images;
+            } else {
+                $image = $request->file('images')->store('public');
+            }
+
+
+
+
+
             $user->update([
                 'username' => $request->input('username'),
                 'mail' => $request->input('mail'),

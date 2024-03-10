@@ -115,9 +115,20 @@ input {
 }
 
 .alert {
-    display: block;
-    color: #fff;
+    width: 600px;
+    color: #ED3833;
+    margin: 20px auto;
+    list-style: none;
+    background-color: #F9DBDC;
 
+}
+
+.alert li {
+    line-height: 1.5rem;
+    margin: 0 auto;
+    padding-top: 5px;
+    width: 500px;
+    ;
 }
 
 /* 新規登録 */

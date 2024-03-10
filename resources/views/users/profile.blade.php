@@ -40,11 +40,13 @@
       </div>
       <div class="center">
         <td>{{$posts->user->username}}</td>
-        <td>{{$posts->post}}</td>
+        <td>
+          <div class="post-inn">{!!nl2br ($posts->post )!!}</div>
+        </td>
       </div>
       <div class="right">
 
-        <td>{{$posts->created_at}}</td>
+        <td>{{substr($posts->created_at,0,16)}}</td>
       </div>
 
     </div>

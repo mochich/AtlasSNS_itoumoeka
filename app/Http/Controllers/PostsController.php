@@ -19,13 +19,25 @@ class PostsController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $posts = Post::with('user')->latest()->get();
+        $followed_id
+            = Auth::user()->followings()->pluck('followed_id');
+        $posts =
+            Post::with('user')->wherein('user_id', $followed_id)->orWhere('user_id', Auth::user()->id)->latest()->get();
 
 
         return view('posts.index', ['user' => $user, 'post' => $posts]);
     }
 
 
+    public function followList()
+    {
+        $users = Auth::user()->followings()->get();
+        $followed_id
+            = Auth::user()->followings()->pluck('followed_id');
+
+        $posts = Post::with('user')->wherein('user_id', $followed_id)->latest()->get();
+        return view('follows.followList', ['users' => $users, 'posts' => $posts]);
+    }
 
     public function create(TestPostRequest $request)
     {

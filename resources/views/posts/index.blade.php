@@ -28,7 +28,7 @@
             {{$post->user->username}}</span>
         </td>
         <td>
-          <div class="post-inn">{{$post->post}}</div>
+          <div class="post-inn">{!!nl2br ($post->post )!!}</div>
         </td>
       </div>
       <div class="right">
@@ -37,7 +37,7 @@
         @if (Auth::user()->id == $post->user_id)
         <div class="icons">
           <!--更新ボタン https://atlas-artlif.com/curriculum/7823/-->
-          <td><a class="modalOpen" href="" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="{{asset('images/edit.png')}}" alt="" height="32px" width="32px"></a></td>
+          <td><a class="modalOpen" href="" post="{!!nl2br ($post->post )!!}" post_id="{{ $post->id }}"><img src="{{asset('images/edit.png')}}" alt="" height="32px" width="32px"></a></td>
 
           <td>
             <a class="box" href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの本を削除してもよろしいでしょうか？')">
