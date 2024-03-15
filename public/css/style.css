@@ -193,6 +193,7 @@ header {
 /* main content */
 .posting {
     display: flex;
+    width: auto;
     height: auto;
     padding: 20px 80px;
     justify-content: space-between;
@@ -201,7 +202,7 @@ header {
 
 .form-control {
     border: none;
-    width: 800px;
+    width: 500px;
 }
 
 .send {

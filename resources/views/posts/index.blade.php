@@ -1,18 +1,19 @@
 @extends('layouts.login')
 
 @section('content')
+<div>
+  <div class="posting">
+    <a href="/users/profile"><img class="icon" src="{{Storage::url(Auth::user()->images)}}"></a>
+    <div>
+      {!! Form::open(['url' => '/post']) !!}
+      <!-- postリクエストの場合必須↓ -->
+      {{csrf_field()}}
+      {{ Form::textarea('post', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください']) }}
+    </div>
 
-<div class="posting">
-  <a href="/users/profile"><img class="icon" src="{{Storage::url(Auth::user()->images)}}"></a>
-  <div>
-    {!! Form::open(['url' => '/post']) !!}
-    <!-- postリクエストの場合必須↓ -->
-    {{csrf_field()}}
-    {{ Form::textarea('post', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください']) }}
+    <input type="image" name="" src="{{asset('images/post.png')}}" class="icon send">
+
   </div>
-
-  <input type="image" name="" src="{{asset('images/post.png')}}" class="icon send">
-
 </div>
 {!! Form::close() !!}
 
